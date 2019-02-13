@@ -12,7 +12,7 @@ S3_BUCKET_NAME = 'nl.opper.aws-test'
 
 
 @app.route('/validate/<string:id>', methods=['POST'])
-def post(id: str) -> None:
+def post(id: str) -> str:
     s3 = boto3.client(
         's3',
         aws_access_key_id=os.environ.get('AWS_SECRET_KEY_ID'),
