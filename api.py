@@ -22,16 +22,13 @@ def post(id: str) -> str:
 
     try:
         obj = s3.get_object(Bucket=S3_BUCKET_NAME, Key=key)
-
-        return jsonify({
-            'data': json.loads(obj['Body'].read())
-        })
+        response = json.loads(obj['Body'].read())
     except s3.exceptions.NoSuchKey:
         response = s3.put_object(Body=json.dumps(request.json.get('data')).encode(), Key=key, Bucket=S3_BUCKET_NAME)
 
-        return jsonify({
-            'data': response
-        })
+    return jsonify({
+        'data': response
+    })
 
 
 if __name__ == '__main__':
