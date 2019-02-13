@@ -18,7 +18,7 @@ def post(id: str) -> None:
         aws_access_key_id=os.environ.get('AWS_SECRET_KEY_ID'),
         aws_secret_access_key=os.environ.get('AWS_SECRET_ACCESS_KEY'),
     )
-    key = 'aws-test.%s.json'.format(id)
+    key = 'aws-test.{}.json'.format(id)
 
     try:
         obj = s3.get_object(Bucket=S3_BUCKET_NAME, Key=key)
