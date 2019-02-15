@@ -31,5 +31,10 @@ def post(id: str) -> str:
     })
 
 
+@app.route('/ping', methods=['GET'])
+def ping() -> str:
+    return 'pong'
+
+
 if __name__ == '__main__':
     app.run()
