@@ -6,6 +6,12 @@ sudo amazon-linux-extras install -y nginx1.12
 git clone https://github.com/alexraileanu/aws-test $HOME/aws-test
 cd $HOME/aws-test
 
+touch .env
+echo "
+AWS_SECRET_KEY_ID='$(aws ssm get-parameters --region eu-central-1 --names secret_key_id --with-decryption --query Parameters[0].Value)'
+AWS_SECRET_ACCESS_KEY='$(aws ssm get-parameters --region eu-central-1 --names secret_access_key --with-decryption --query Parameters[0].Value)'
+" > .env
+
 sudo pip3.7 install virtualenv
 
 virtualenv venv
