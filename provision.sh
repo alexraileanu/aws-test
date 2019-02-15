@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 sudo yum install -y git python3 python3-devel gcc
-sudo amazon-linux-extras -y install nginx1.12
+sudo amazon-linux-extras install -y nginx1.12
 
 git clone https://github.com/alexraileanu/aws-test $HOME/aws-test
 cd $HOME/aws-test
