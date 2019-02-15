@@ -12,6 +12,7 @@ virtualenv venv
 source venv/bin/activate
 pip install -r requirements.txt
 
+sudo cp resources/nginx.conf /etc/nginx/nginx.conf
 sudo cp resources/api.conf /etc/nginx/conf.d/api.conf
 sudo systemctl restart nginx
 
