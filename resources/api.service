@@ -5,11 +5,10 @@ After=network.target
 [Service]
 User=ec2-user
 Group=ec2-user
-WorkingDirectory=/home/ec2-user/aws-test
-Environment="PATH=/home/ec2-user/aws-test/venv/bin"
+WorkingDirectory=/opt/aws-test
+Environment="PATH=/opt/aws-test/venv/bin"
 
-# --wsgi-disable-file-wrapper because uwsgi fails to work with responses with binary files :)
-ExecStart=/home/ec2-user/aws-test/venv/bin/uwsgi --ini /home/ec2-user/aws-test/resources/api.ini
+ExecStart=/opt/aws-test/venv/bin/uwsgi --ini /opt/aws-test/resources/api.ini
 
 [Install]
 WantedBy=multi-user.target
