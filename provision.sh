@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-sudo yum install -y git python3
+sudo yum install -y git python3 python3-devel gcc
 git clone https://github.com/alexraileanu/aws-test $HOME/aws-test
 cd $HOME/aws-test
 
